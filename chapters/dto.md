@@ -17,7 +17,7 @@ When switching between APIs, code breaks because it's accessing array keys that 
 Create a simple class that standardizes the data structure:
 ```php
 class EmailValidationResult {
-    public function __construct(public readonly string $score, public readonly bool $isDeliverable) {}
+    public function __construct(public readonly int $score, public readonly bool $isDeliverable) {}
 }
 ```
 
