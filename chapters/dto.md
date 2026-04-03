@@ -2,7 +2,7 @@
 
 **What is a DTO?**
 
-A Data Transfer Object is a simple object designed to carry data between different parts of an application (e.g., from APIs, browser requests, etc.). It structures data as an object rather than using unstructured arrays with "magical" keys.
+A Data Transfer Object is a simple object designed to carry data between different parts of an application (e.g., from APIs, browser requests, etc.). It structures data as an object rather than using unstructured arrays with arbitrary string keys that are never enforced, typed, or validated..
 
 **The Problem DTOs Solve**
 
