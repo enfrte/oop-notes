@@ -31,3 +31,35 @@ Each API service converts its unique response format into this common DTO format
 
 **When to Use DTOs**
 Use them when you're passing the same data structure to multiple methods/classes, especially when dealing with external APIs or complex request/response data.
+
+**Handy method to have inside DTO**
+
+```php
+public function toArray(): array
+{
+    $properties = get_object_vars($this);
+    $result = [];
+
+    foreach ($properties as $key => $value) {
+        if ($value instanceof self) {
+            $result[$key] = $value->toArray();
+        } else {
+            $result[$key] = $value;
+        }
+    }
+
+    return $result;
+}
+```
+
+Note: This only gets other DTOs at the current level. If there is a chance of further DTO nesting, it's best to give all the DTOs something like 
+
+```php
+interface Arrayable
+{
+    public function toArray(): array;
+}
+```
+then check with `if ($value instanceof Arrayable) {`
+
+
